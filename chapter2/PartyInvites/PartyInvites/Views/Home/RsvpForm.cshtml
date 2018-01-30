@@ -1,0 +1,72 @@
+﻿@model PartyInvites.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Styles.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <title>RsvpForm</title>
+</head>
+<body>
+    <div class="panel panel-success">
+        <div class="panel-heading text-center">
+            <div class="panel-body">
+                @using (Html.BeginForm())
+                {
+                    @Html.ValidationSummary()
+                    <!-- Generated html for TextBoxFor method
+                    <input id="property name" name = "property name" type="text" value="">
+                     -->
+       <span>                    <div class="form-group">
+                        <label> Your Name:</label>
+                        @Html.TextBoxFor(x => x.Name, new { @class ="form-control" })
+                    </div>
+    <br />
+                    <div class="form-group">
+                        <label> Your Email:</label>
+                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" }) 
+                    </div>
+    <br />
+                    <div class="form-group">
+                        <label> Your Phone:</label>
+                        @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+                    </div>
+    <br />
+                    <div class="form-group">
+                        <label>Will you attend?</label>
+                        @Html.DropDownListFor(x => x.WillAttend, new SelectListItem[]
+                        {
+                            //initiallizing the array
+                            new SelectListItem()
+                            {
+                                //setting properties
+                                Text = "Yes, I'm comming", Value = bool.TrueString
+                            },
+                            new SelectListItem()
+                            {
+                                //setting properties
+                                Text="No, I'm not going to attend.", Value=bool.FalseString
+                            }
+                        }, "Choose an option", new { @class = "form-control" })
+                    </div>
+                    <br />
+                </span>             
+
+                    <div class="text-center">
+                        <!--submit form button-->
+                        <input class="btn btn-success" type="submit" value="Submit RSVP" />
+                    </div>
+                }
+                <div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

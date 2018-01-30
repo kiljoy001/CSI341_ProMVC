@@ -1,0 +1,47 @@
+﻿@model PartyInvites.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <title>Thanks</title>
+</head>
+<body>
+    @{
+        try
+        {
+            WebMail.SmtpServer = "";
+            WebMail.SmtpPort = 0;
+            WebMail.UserName = "";
+            WebMail.EnableSsl = false;
+            WebMail.Password = "";
+
+            WebMail.From = "";
+            WebMail.Send("", "", Model.Name + "is" + ((Model.WillAttend ?? false) ? "" : "not") + "attending");
+        } catch (Exception)
+        {
+            @:<b>Sorry, we couldn't send your reservation. please contact the site admin</b>
+        }
+      }
+    <div class="text-center">
+        <h1>Thanks, @Model.Name</h1>
+        <div class="lead">
+            @if (Model.WillAttend == true)
+            {
+                @:Thank you for reserving a spot at our party! The fridge is stocked, so you don't have to bring anything unless you want to share!
+            }
+            else
+            {
+                @:Sorry that you can't make it. We'll let you know if there is another event!
+            }
+        </div>
+    </div>
+</body>
+</html>
