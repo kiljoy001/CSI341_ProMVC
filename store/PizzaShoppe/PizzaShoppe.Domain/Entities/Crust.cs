@@ -14,5 +14,6 @@ namespace PizzaShoppe.Domain.Entities
         public decimal MedPrice { get; set; }
         public decimal LargePrice { get; set; }
         public string Description { get; set; }
+        public string Size { get; set; }
     }
 }
