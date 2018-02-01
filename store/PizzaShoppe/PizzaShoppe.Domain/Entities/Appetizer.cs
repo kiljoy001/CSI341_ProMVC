@@ -10,7 +10,8 @@ namespace PizzaShoppe.Domain.Entities
     {
         public int AppID { get; set; }
         public string Name { get; set; }
-        public decimal Price { get; set; }
+        public decimal SmallPrice { get; set; }
+        public decimal LargePrice { get; set; }
         public string Description { get; set; }
     }
 }
