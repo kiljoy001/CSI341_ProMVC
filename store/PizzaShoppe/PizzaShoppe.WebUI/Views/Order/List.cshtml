@@ -3,60 +3,67 @@
 @{
     ViewBag.Title = "List";
 }
-
-@foreach (var app in Model.Appetizers.AppetizersList)
-{
-    <div>
-        <h3>@app.Name</h3>
-        @app.Description
-        <h4>@app.Price.ToString("c")</h4>
+<link href="~/Content/rotating_card/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/rotating_card/rotating-card.css" rel="stylesheet" />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10 col-sm-offest-1">
+            @foreach (var app in Model.Appetizers.AppetizersList)
+            {
+                <div>
+                    <h3>@app.Name</h3>
+                    @app.Description
+                    <h4>@app.Price.ToString("c")</h4>
+                </div>
+            }
+            <br />
+            <br />
+            @foreach (var bev in Model.Beverages.BeveragesList)
+            {
+                <div>
+                    <h3>@bev.Name</h3>
+                    @bev.Description
+                    <h4>@bev.Price.ToString("c")</h4>
+                </div>
+            }
+            <br />
+            <br />
+            @foreach (var crust in Model.Crusts.CrustsLists)
+            {
+                <div>
+                    <h3>@crust.Name</h3>
+                    @crust.Description
+                    <h4>@crust.SmallPrice.ToString("c")</h4>
+                    <h4>@crust.MedPrice.ToString("c")</h4>
+                    <h4>@crust.LargePrice.ToString("c")</h4>
+                </div>
+            }
+            <br />
+            <br />
+            @foreach (var pizza in Model.Special.PizzasLists)
+            {
+                <div>
+                    <h3>@pizza.Name</h3>
+                    @pizza.Description
+                    <h4>@pizza.SmallPrice.ToString("c")</h4>
+                    <h4>@pizza.MedPrice.ToString("c")</h4>
+                    <h4>@pizza.LargePrice.ToString("c")</h4>
+                </div>
+            }
+            <br />
+            <br />
+            @foreach (var top in Model.Toppings.ToppingsLists)
+            {
+                <div>
+                    <h3>
+                        @top.Name
+                    </h3>
+                    @top.Description
+                    <h4>
+                        @top.Price.ToString("c")
+                    </h4>
+                </div>
+            }
+            </div>
+        </div>
     </div>
-}
-<br/>
-<br/>
-@foreach (var bev in Model.Beverages.BeveragesList)
-{
-    <div>
-        <h3>@bev.Name</h3>
-        @bev.Description
-        <h4>@bev.Price.ToString("c")</h4>
-    </div>
-}
-<br />
-<br />
-@foreach (var crust in Model.Crusts.CrustsLists)
-{
-    <div>
-        <h3>@crust.Name</h3>
-        @crust.Description
-        <h4>@crust.SmallPrice.ToString("c")</h4>
-        <h4>@crust.MedPrice.ToString("c")</h4>
-        <h4>@crust.LargePrice.ToString("c")</h4>
-    </div>
-}
-<br />
-<br />
-@foreach (var pizza in Model.Special.PizzasLists)
-{
-    <div>
-        <h3>@pizza.Name</h3>
-        @pizza.Description
-        <h4>@pizza.SmallPrice.ToString("c")</h4>
-        <h4>@pizza.MedPrice.ToString("c")</h4>
-        <h4>@pizza.LargePrice.ToString("c")</h4>
-    </div>
-}
-<br/>
-<br/>
-@foreach (var top in Model.Toppings.ToppingsLists)
-{
-    <div>
-        <h3>
-            @top.Name
-        </h3>
-            @top.Description
-        <h4>
-            @top.Price.ToString("c")
-        </h4>
-    </div>
-}
