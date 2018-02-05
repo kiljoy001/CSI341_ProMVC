@@ -5,22 +5,67 @@
 }
 <link href="~/Content/rotating_card/bootstrap.css" rel="stylesheet" />
 <link href="~/Content/rotating_card/rotating-card.css" rel="stylesheet" />
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
 <div class="container">
-    <div class="row">
+    <div class="container">
         <div class="col-sm-10 col-sm-offest-1">
+            <br />
             @foreach (var app in Model.Appetizers.AppetizersList)
             {
-                <div>
+                @*<div class="col-sm-4 card">
                     <h3>@app.Name</h3>
                     @app.Description
                     <h4>@app.Price.ToString("c")</h4>
-                </div>
+                </div>*@
+    <div class="col-sm-4">
+        <div class="card-container">
+            <div class="card">
+                <div class="front">
+                    <div class="cover">
+                        <img src="../img/pizza-1452329_640.jpg" />
+                    </div>
+                    <div class="content">
+                        <div class="main">
+                            <h3 class="name">@app.Name</h3>
+                            @*<p class="profession">The American classic</p>*@
+                            <p class="text-center">@app.Description</p>
+                        </div>
+                        <div class="footer">
+                            <i class="fa fa-mail-forward"></i> Flip to see prices!
+                        </div>
+                    </div>
+                </div> <!-- end front panel -->
+                <div class="back">
+                    <div class="header">
+                        @*<h5 class="motto">Our pizza is made with only the finest, freshest ingredients!</h5>*@
+                    </div>
+                    <div class="content">
+                        <div class="main">
+                            <h4 class="text-center">Sizes</h4>
+                            <p class="text-center">Our appetizers come in one size only</p>
+                            <div class="stats-container">
+                                <div class=" text-center">
+                                    <h4>@app.Price.ToString("c")</h4>
+                                    <p>
+                                        <a href="#">Click to Order @app.Name</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                    </div>
+                </div> <!-- end back panel -->
+            </div> <!-- end card -->
+        </div>
+    </div>
             }
             <br />
             <br />
             @foreach (var bev in Model.Beverages.BeveragesList)
             {
-                <div>
+                <div class="col-sm-4">
                     <h3>@bev.Name</h3>
                     @bev.Description
                     <h4>@bev.Price.ToString("c")</h4>
@@ -30,7 +75,7 @@
             <br />
             @foreach (var crust in Model.Crusts.CrustsLists)
             {
-                <div>
+                <div class="col-sm-4">
                     <h3>@crust.Name</h3>
                     @crust.Description
                     <h4>@crust.SmallPrice.ToString("c")</h4>
@@ -42,7 +87,7 @@
             <br />
             @foreach (var pizza in Model.Special.PizzasLists)
             {
-                <div>
+                <div class="col-sm-4">
                     <h3>@pizza.Name</h3>
                     @pizza.Description
                     <h4>@pizza.SmallPrice.ToString("c")</h4>
@@ -54,7 +99,7 @@
             <br />
             @foreach (var top in Model.Toppings.ToppingsLists)
             {
-                <div>
+                <div class="col-sm-4">
                     <h3>
                         @top.Name
                     </h3>
