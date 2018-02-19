@@ -153,5 +153,25 @@ namespace SportsStore.Tests
             //Assert
             Assert.AreEqual(categoryToSelect, result);
         }
+        [TestMethod]
+        public void Generate_Specific_Product_Count()
+        {
+            //Arrange
+            Tuple<ProductsListViewModel, ProductController> setup= paginate_setup();
+            ProductController target = setup.Item2;
+            ProductsListViewModel result = setup.Item1;
+
+            //Act
+            int res1 = ((ProductsListViewModel)target.List("Cat1").Model).Paginginfo.TotalItems;
+            int res2 = ((ProductsListViewModel)target.List("Cat2").Model).Paginginfo.TotalItems;
+            int res3 = ((ProductsListViewModel)target.List("Cat3").Model).Paginginfo.TotalItems;
+            int resAll = ((ProductsListViewModel)target.List(null).Model).Paginginfo.TotalItems;
+
+            //Assert
+            Assert.AreEqual(res1, 2);
+            Assert.AreEqual(res2, 2);
+            Assert.AreEqual(res3, 1);
+            Assert.AreEqual(resAll, 5);
+        }
     }
 }
